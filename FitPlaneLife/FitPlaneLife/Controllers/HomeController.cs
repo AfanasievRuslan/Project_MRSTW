@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FitPlaneLife.BusinessLogic.DBModel;
+using FitPlaneLife.Domain.Entities.User;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,11 +8,12 @@ using System.Web.Mvc;
 
 namespace FitPlaneLife.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        // GET: Home
+          // GET: Home
         public ActionResult Index()
         {
+            SessionStatus();
             return View();
         }
         public ActionResult Contact()

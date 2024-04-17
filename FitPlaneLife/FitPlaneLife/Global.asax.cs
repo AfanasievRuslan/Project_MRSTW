@@ -30,7 +30,7 @@ namespace FitPlaneLife
                Mapper.Initialize(cfg =>
                {
                     cfg.CreateMap<UserLogin, ULoginData>();
-                    //cfg.CreateMap<UserRegister, URegisterData>();
+                    cfg.CreateMap<UserRegister, URegisterData>();
                });
           }
      }

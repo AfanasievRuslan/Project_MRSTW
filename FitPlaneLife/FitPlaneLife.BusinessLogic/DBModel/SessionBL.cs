@@ -17,10 +17,10 @@ namespace FitPlaneLife.BusinessLogic.DBModel
                return UserLoginAction(data);
           }
 
-          //public URegisterResp UserRegister(URegisterData data)
-          //{
-          //     return UserRegisterAction(data);
-          //}
+          public URegisterResp UserRegister(URegisterData data)
+          {
+               return UserRegisterAction(data);
+          }
 
           public HttpCookie GenCookie(string loginCredential)
           {

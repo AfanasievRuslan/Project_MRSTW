@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using FitPlaneLife.BusinessLogic.DBModel;
 using FitPlaneLife.Domain.Entities.User;
+using FitPlaneLife.Domain.Enums;
 using FitPlaneLife.Helpers;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,44 @@ namespace FitPlaneLife.BusinessLogic.Core
                else
                     return new ULoginResp { Status = false };
           }
+
+          internal URegisterResp UserRegisterAction(URegisterData data)
+          {
+               UserTable existingUser;
+               var validate = new EmailAddressAttribute();
+               if (validate.IsValid(data.Email))
+               {
+                    using (var db = new UserContext())
+                    {
+                         existingUser = db.Users.FirstOrDefault(u => u.Email == data.Email);
+                    }
+
+                    if (existingUser != null)
+                    {
+                         return new URegisterResp { Status = false, StatusMsg = "User With Email Already Exists" };
+                    }
+
+                    var pass = LoginHelper.HashGen(data.Password);
+                    var newUser = new UserTable
+                    {
+                         Email = data.Email,
+                         Username = data.Username,
+                         Password = pass,
+                         LastIp = data.LoginIp,
+                         LastLogin = data.LoginDateTime,
+                         Level = (URole)0,
+                    };
+
+                    using (var todo = new UserContext())
+                    {
+                         todo.Users.Add(newUser);
+                         todo.SaveChanges();
+                    }
+                    return new URegisterResp { Status = true };
+               }
+               else
+                    return new URegisterResp { Status = false };
+          }
           internal HttpCookie Cookie(string loginCredential)
           {
                var apiCookie = new HttpCookie("X-KEY")
@@ -66,7 +105,7 @@ namespace FitPlaneLife.BusinessLogic.Core
                     if (curent != null)
                     {
                          curent.CookieString = apiCookie.Value;
-                         curent.ExpireTime = DateTime.Now.AddMinutes(60);
+                         curent.ExpireTime = DateTime.Now.AddMinutes(1);
                          using (var todo = new SessionContext())
                          {
                               todo.Entry(curent).State = EntityState.Modified;
@@ -79,7 +118,7 @@ namespace FitPlaneLife.BusinessLogic.Core
                          {
                               Username = loginCredential,
                               CookieString = apiCookie.Value,
-                              ExpireTime = DateTime.Now.AddMinutes(60)
+                              ExpireTime = DateTime.Now.AddMinutes(1)
                          });
                          db.SaveChanges();
                     }
@@ -113,7 +152,6 @@ namespace FitPlaneLife.BusinessLogic.Core
                }
 
                if (curentUser == null) return null;
-               Mapper.Initialize(cfg => cfg.CreateMap<UserTable, UserMinimal>());
                var userminimal = Mapper.Map<UserMinimal>(curentUser);
 
                return userminimal;

@@ -13,6 +13,7 @@ namespace FitPlaneLife
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Eliminarea rutei cu numele "Default"
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
@@ -21,3 +22,4 @@ namespace FitPlaneLife
         }
     }
 }
+

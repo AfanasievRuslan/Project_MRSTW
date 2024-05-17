@@ -314,8 +314,11 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Register\Register.cshtml" />
     <Content Include="Views\Admin\Admin.cshtml" />
-    <Content Include="Views\Subscriptions\IActionResult.cshtml" />
+    <Content Include="Views\Subscription\IActionResult.cshtml" />
     <Content Include="Views\Subscription\Abonements.cshtml" />
+    <Content Include="Views\Subscription\Create.cshtml" />
+    <Content Include="Views\Subscription\AbonamnetsPage.cshtml" />
+    <Content Include="Views\Subscription\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

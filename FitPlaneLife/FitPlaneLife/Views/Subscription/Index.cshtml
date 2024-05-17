@@ -1,0 +1,37 @@
+﻿@model IEnumerable<FitPlaneLife.Domain.Entities.User.Subscription>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subscriptions</title>
+</head>
+<body>
+    <h1>Subscriptions</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Duration (Months)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var subscription in Model)
+            {
+                <tr>
+                    <td>@subscription.Name</td>
+                    <td>@subscription.Description</td>
+                    <td>@subscription.Price</td>
+                    <td>@subscription.Duration</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a href="@Url.Action("CreateMonthlySubscription", "Subscription")">Create Monthly Subscription</a>
+    <a href="@Url.Action("CreateQuarterlySubscription", "Subscription")">Create Quarterly Subscription</a>
+    <a href="@Url.Action("CreateHalfYearlySubscription", "Subscription")">Create Half Yearly Subscription</a>
+</body>
+</html>

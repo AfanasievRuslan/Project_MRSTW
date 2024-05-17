@@ -177,6 +177,7 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="css\admin.css" />
     <Content Include="css\animate.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
@@ -201,6 +202,9 @@
     <Content Include="img\carousel-1.jpg" />
     <Content Include="img\carousel-2.jpg" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\counterup.min.js" />
+    <Content Include="js\easing.js" />
+    <Content Include="js\easing.min.js" />
     <Content Include="js\homer.js" />
     <Content Include="js\icheck.min.js" />
     <Content Include="js\index.js" />
@@ -216,6 +220,9 @@
     <Content Include="js\jquery.slimscroll.min.js" />
     <Content Include="js\main.js" />
     <Content Include="js\metisMenu.min.js" />
+    <Content Include="js\owl.carousel.js" />
+    <Content Include="js\owl.carousel.min.js" />
+    <Content Include="js\waypoints.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -226,6 +233,7 @@
     <Content Include="fonts\fontawesome-webfont862f.ttf" />
     <Content Include="fonts\fontawesome-webfont862f.woff" />
     <Content Include="fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="js\links.php" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
@@ -249,10 +257,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\SubscriptionController.cs" />
     <Compile Include="Extension\HttpContextExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Subscription.cs" />
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Models\UserRegister.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -304,6 +314,8 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Register\Register.cshtml" />
     <Content Include="Views\Admin\Admin.cshtml" />
+    <Content Include="Views\Subscriptions\IActionResult.cshtml" />
+    <Content Include="Views\Subscription\Abonements.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

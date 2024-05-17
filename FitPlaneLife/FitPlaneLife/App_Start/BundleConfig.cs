@@ -11,10 +11,10 @@ namespace FitPlaneLife.App_Start
         public static void RegisterBundles(BundleCollection bundles)
         {
                bundles.Add(new ScriptBundle("~/lib").Include(
-                    "~/lib/easing/easing.min.js",
-                    "~/lib/waypoints/waypoints.min.js",
-                    "~/lib/owlcarousel/owl.carousel.min.js",
-                    "~/lib/counterup/counterup.min.js"));
+                    "~/js/easing.min.js",
+                    "~/js/waypoints.min.js",
+                    "~/js/owl.carousel.min.js",
+                    "~/js/counterup.min.js"));
 
                bundles.Add(new ScriptBundle("~/js").Include(
                    "~/js/main.js"));
@@ -24,7 +24,8 @@ namespace FitPlaneLife.App_Start
 
                bundles.Add(new StyleBundle("~/css").Include(
                     "~/css/bootstrap.min.css",
-                    "~/css/style.css"));
+                    "~/css/style.css",
+                    "~/css/admin.css"));
 
                bundles.Add(new StyleBundle("~/lib").Include(
                     "~/lib/owlcarousel/assets/owl.carousel.min.css",

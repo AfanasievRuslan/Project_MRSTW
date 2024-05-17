@@ -64,6 +64,7 @@
     <Compile Include="Core\UserApi.cs" />
     <Compile Include="DBModel\SessionBL.cs" />
     <Compile Include="DBModel\SessionContext.cs" />
+    <Compile Include="DBModel\SubscriptionDbContext.cs" />
     <Compile Include="DBModel\UserContext.cs" />
     <Compile Include="Interfaces\ISession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

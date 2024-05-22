@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "ViewCreate";
 }
 
@@ -9,6 +8,8 @@
 <html>
 <head>
     <title>Create Subscription</title>
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css" />
 </head>
 <body>
     <h1>Create Subscription</h1>
@@ -46,10 +47,9 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <button type="submit" class="btn btn-default">Save</button>
+                <button type="submit" class="btn btn-primary btn-lg">Save</button>
             </div>
         </div>
     }
 </body>
 </html>
-

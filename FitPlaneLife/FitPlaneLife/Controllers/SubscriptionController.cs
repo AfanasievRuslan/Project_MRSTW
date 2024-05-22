@@ -1,5 +1,6 @@
 ﻿using FitPlaneLife.BusinessLogic.DBModel;
 using FitPlaneLife.Domain.Entities.User;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -8,82 +9,54 @@ namespace FitPlaneLife.Controllers
 {
     public class SubscriptionController : Controller
     {
-        private readonly SubscriptionDbContext _context;
-
-        public SubscriptionController(SubscriptionDbContext context)
+        public ActionResult Index()
         {
-            _context = context;
+            // Your logic to retrieve the model data
+            var model = GetSubscriptions();
+            return View(model);
         }
-
-        public async Task<ActionResult> Index()
+        public ActionResult CreateBasicSubscription()
         {
-            return View(await _context.Subscriptions.ToListAsync());
-        }
-        
-        public ActionResult Abonements()
-        {
+            // Implementation for creating a basic subscription
             return View();
         }
-        public SubscriptionController()
+
+        public ActionResult CreatePremiumSubscription()
         {
-            // Inițializările necesare pot fi realizate aici sau poate fi lăsat gol
+            // Implementation for creating a premium subscription
+            return View();
         }
 
+        // GET: Subscription/Index
+        private List<Subscription> GetSubscriptions()
+        {
+            return new List<Subscription>
+            {
+                new Subscription { Type = "Monthly", Price = 10, Duration = 1 },
+                new Subscription { Type = "Quarterly", Price = 25, Duration = 3 },
+                new Subscription { Type = "HalfYearly", Price = 45, Duration = 6 }
+            };
+        }
+        public ActionResult Abonements()
+        {
+            var subscriptions = GetSubscriptions();
+            return View(subscriptions);
+        }
+        // Acțiuni pentru crearea abonamentelor
+        public ActionResult CreateMonthlySubscription() => View("Create");
+        public ActionResult CreateQuarterlySubscription() => View("Create");
+        public ActionResult CreateHalfYearlySubscription() => View("Create");
+
+        // POST: Subscription/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name,Description,Price,Duration")] Subscription subscription)
+        public ActionResult Create(Subscription model)
         {
             if (ModelState.IsValid)
             {
-                _context.Subscriptions.Add(subscription);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index"); // Redirecționează la o altă acțiune după salvare
             }
-            return View(subscription);
+            return View(model);
         }
-
-        public ActionResult CreateMonthlySubscription()
-        {
-            var subscription = new Subscription
-            {
-                Name = "Monthly Subscription",
-                Description = "Access for one month",
-                Price = 9.99m,
-                Duration = 1 // 1 month
-            };
-            return View("Create", subscription);
-        }
-
-        public ActionResult CreateQuarterlySubscription()
-        {
-            var subscription = new Subscription
-            {
-                Name = "Quarterly Subscription",
-                Description = "Access for three months",
-                Price = 27.99m,
-                Duration = 3 // 3 months
-            };
-            return View("Create", subscription);
-        }
-
-       
-
-        public ActionResult CreateHalfYearlySubscription()
-        {
-            var subscription = new Subscription
-            {
-                Name = "Half-Yearly Subscription",
-                Description = "Access for six months",
-                Price = 49.99m,
-                Duration = 6 // 6 months
-            };
-            return View("Create", subscription);
-        }
-
-        public ActionResult AbonementsPage()
-        {
-            return View();
-        }
-
     }
+
 }

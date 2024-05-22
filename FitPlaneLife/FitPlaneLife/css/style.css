@@ -1,4 +1,4 @@
-/********** Template CSS **********/
+﻿/********** Template CSS **********/
 :root {
     --primary: #FB5B21;
     --secondary: #BDBDBF;
@@ -73,6 +73,7 @@ h6,
     border-radius: 0;
     z-index: 99;
 }
+
 
 .navbar-dark .navbar-nav .nav-link {
     font-family: 'Oswald', sans-serif;
@@ -219,5 +220,7 @@ h6,
         background: var(--primary);
     }
 }
-   
-}
+
+
+
+

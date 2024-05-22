@@ -1,6 +1,8 @@
 ﻿
 @{
     ViewBag.Title = "_Header";
+    var user = ViewBag.user;
+    var userStatus = ViewBag.userStatus;
 }
 
 <!-- Header Start -->
@@ -57,9 +59,9 @@
                         <a href="@Url.Action("About", "Home")" class="nav-item nav-link">About</a>
                         <a href="@Url.Action("Classes", "Home")" class="nav-item nav-link">Classes</a>
                         <a href="@Url.Action("Trainers", "Home")" class="nav-item nav-link">Trainers</a>
-                        <li class="nav-item">
+                        <g class="nav-item">
                             <a href="@Url.Action("Abonements", "Subscription")" class="nav-link">Abonements</a>
-                        </li>
+                        </g>
                         <div class="nav-item dropdown">
                             <a href="@Url.Action("Pages", "Home")" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu rounded-0 m-0">
@@ -69,9 +71,21 @@
 
                             </div>
                         </div>
-                        <a href="@Url.Action("Admin", "Admin")" class="nav-item nav-link">Contact</a>
+
                     </div>
-                    <a href="@Url.Action("Login", "Login")" class="btn btn-primary py-md-3 px-md-5 d-none d-lg-block" target="_self"> Join Us</a>
+                    @if (userStatus == "login")
+                    {
+                        if (user != null && (int)user.Level == 2)
+                        {
+                            <a href="@Url.Action("Admin", "Admin")" class="nav-item nav-link">ADMIN</a>
+                        }
+
+                        <a href="@Url.Action("Login", "Login")" class="btn btn-primary py-md-3 px-md-5 d-none d-lg-block" target="_self"> Log Out</a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Login", "Login")" class="btn btn-primary py-md-3 px-md-5 d-none d-lg-block" target="_self"> Join Us</a>
+                    }
                 </div>
             </nav>
         </div>

@@ -317,7 +317,6 @@
     <Content Include="Views\Subscription\IActionResult.cshtml" />
     <Content Include="Views\Subscription\Abonements.cshtml" />
     <Content Include="Views\Subscription\Create.cshtml" />
-    <Content Include="Views\Subscription\AbonamnetsPage.cshtml" />
     <Content Include="Views\Subscription\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -326,7 +325,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\style\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FitPlaneLife.BusinessLogic\FitPlaneLife.BusinessLogic.csproj">
       <Project>{06236e26-b5b4-4508-ae24-c513af940be4}</Project>

@@ -1,7 +1,53 @@
-﻿
+﻿@model IEnumerable<FitPlaneLife.Domain.Entities.User.Subscription>
+
 @{
     ViewBag.Title = "Abonements";
 }
 
-<h2>Abonements</h2>
+<center><h2><b>ABONEMENTS</b></h2></center>
+<div>
+    <p>
+        Here you can find various subscriptions available:
+    </p>
+    <div class="d-flex justify-content-center my-3 flex-wrap">
+        @foreach (var subscription in Model)
+        {
+            var actionName = "Create" + subscription.Type + "Subscription";
+            <div class="abonement-item">
+                <a href="@Url.Action(actionName, "Subscription")" class="abonement-link">
+                    <div class="abonement-content">
+                        <h3 style="font-size: 24px; font-weight: bold;">@subscription.Type Abonement</h3>
+                        <span style="font-size: 18px;">Price: $@subscription.Price</span><br />
+                        <span style="font-size: 18px;">Duration: @subscription.Duration months</span>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>
 
+<style>
+    .abonement-item {
+        margin: 10px;
+    }
+
+    .abonement-link {
+        text-decoration: none;
+    }
+
+    .abonement-content {
+        background-color: #EF7F29;
+        color: white;
+        padding: 20px;
+        height: 200px;
+        width: 250px;
+        border-radius: 15px;
+        border: 1px solid black;
+        text-align: center;
+        transition: background-color 0.3s ease;
+    }
+
+        .abonement-content:hover {
+            background-color: #E4DAD2;
+        }
+</style>

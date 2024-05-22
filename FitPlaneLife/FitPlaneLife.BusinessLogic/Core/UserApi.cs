@@ -105,7 +105,7 @@ namespace FitPlaneLife.BusinessLogic.Core
                     if (curent != null)
                     {
                          curent.CookieString = apiCookie.Value;
-                         curent.ExpireTime = DateTime.Now.AddMinutes(1);
+                         curent.ExpireTime = DateTime.Now.AddMinutes(5);
                          using (var todo = new SessionContext())
                          {
                               todo.Entry(curent).State = EntityState.Modified;
@@ -118,7 +118,7 @@ namespace FitPlaneLife.BusinessLogic.Core
                          {
                               Username = loginCredential,
                               CookieString = apiCookie.Value,
-                              ExpireTime = DateTime.Now.AddMinutes(1)
+                              ExpireTime = DateTime.Now.AddMinutes(5)
                          });
                          db.SaveChanges();
                     }

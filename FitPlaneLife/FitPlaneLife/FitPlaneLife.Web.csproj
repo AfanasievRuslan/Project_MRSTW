@@ -256,12 +256,15 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\RecoverDataController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\SubscriptionController.cs" />
     <Compile Include="Extension\HttpContextExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\RecoverPassword.cs" />
+    <Compile Include="Models\RecoverPasswordData.cs" />
     <Compile Include="Models\Subscription.cs" />
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Models\UserRegister.cs" />
@@ -318,6 +321,8 @@
     <Content Include="Views\Subscription\Abonements.cshtml" />
     <Content Include="Views\Subscription\Create.cshtml" />
     <Content Include="Views\Subscription\Index.cshtml" />
+    <Content Include="Views\RecoverData\RecoverData.cshtml" />
+    <Content Include="Views\RecoverData\Recover.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -325,9 +330,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\style\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\FitPlaneLife.BusinessLogic\FitPlaneLife.BusinessLogic.csproj">
       <Project>{06236e26-b5b4-4508-ae24-c513af940be4}</Project>

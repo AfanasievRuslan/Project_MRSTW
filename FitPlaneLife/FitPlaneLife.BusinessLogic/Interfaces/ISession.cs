@@ -1,4 +1,5 @@
-﻿using FitPlaneLife.Domain.Entities.User;
+﻿using FitPlaneLife.Domain.Entities.Admin;
+using FitPlaneLife.Domain.Entities.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace FitPlaneLife.BusinessLogic.Interfaces
           ULoginResp UserLogin(ULoginData data);
           URegisterResp UserRegister(URegisterData data);
           HttpCookie GenCookie(string loginCredential);
+          bool RecoverPassword(string email, string password);
           UserMinimal GetUserByCookie(string apiCookieValue);
+          BoolResp CheckUser(UCheckData data);
      }
 }

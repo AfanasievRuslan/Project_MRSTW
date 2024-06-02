@@ -54,8 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Admin\BoolResp.cs" />
     <Compile Include="Entities\User\Session.cs" />
     <Compile Include="Entities\User\Subscription.cs" />
+    <Compile Include="Entities\User\UCheckData.cs" />
     <Compile Include="Entities\User\ULoginData.cs" />
     <Compile Include="Entities\User\ULoginResp.cs" />
     <Compile Include="Entities\User\URegisterData.cs" />

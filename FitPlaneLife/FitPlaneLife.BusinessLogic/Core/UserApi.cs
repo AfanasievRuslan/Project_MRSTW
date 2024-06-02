@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FitPlaneLife.BusinessLogic.DBModel;
+using FitPlaneLife.Domain.Entities.Admin;
 using FitPlaneLife.Domain.Entities.User;
 using FitPlaneLife.Domain.Enums;
 using FitPlaneLife.Helpers;
@@ -155,6 +156,41 @@ namespace FitPlaneLife.BusinessLogic.Core
                var userminimal = Mapper.Map<UserMinimal>(curentUser);
 
                return userminimal;
+          }
+          internal BoolResp CheckUserAction(UCheckData data)
+          {
+               var validate = new EmailAddressAttribute();
+               if (validate.IsValid(data.Email))
+               {
+                    using (var db = new TableContext())
+                    {
+                         UserTable existingUser = db.Users.FirstOrDefault(u => u.Email == data.Email && u.Username == data.Username);
+                         if (existingUser == null)
+                         {
+                              return new BoolResp { Status = false, StatusMsg = "User does not exists." };
+                         }
+                    }
+                    return new BoolResp { Status = true };
+               }
+               else
+                    return new BoolResp { Status = false };
+          }
+          internal bool RecoverPasswordAction(string email, string password)
+          {
+               var validate = new EmailAddressAttribute();
+               if (validate.IsValid(email))
+               {
+                    using (var db = new TableContext())
+                    {
+                         UserTable user = db.Users.FirstOrDefault(u => u.Email == email);
+                         var pass = LoginHelper.HashGen(password);
+                         user.Password = pass;
+                         db.SaveChanges();
+                    }
+                    return true;
+               }
+               else
+                    return false;
           }
 
      }

@@ -220,7 +220,37 @@ h6,
         background: var(--primary);
     }
 }
+.abonement-item {
+    margin: 10px;
+}
 
+.abonement-link {
+    text-decoration: none;
+}
+
+.abonement-content {
+    background-color: #EF7F29;
+    color: white;
+    padding: 20px;
+    height: 200px;
+    width: 250px;
+    border-radius: 15px;
+    border: 1px solid black;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+    .abonement-content:hover {
+        background-color: #E4DAD2;
+    }
+
+.custom-date-input {
+    width: 190px;
+    border: 1px solid black;
+    border-radius: 2px;
+    height: 28px;
+    border-color: #808080;
+}
 
 
 

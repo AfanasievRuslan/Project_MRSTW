@@ -4,6 +4,7 @@ using FitPlaneLife.BusinessLogic.Interfaces;
 using FitPlaneLife.Domain.Entities.User;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -87,5 +88,13 @@ namespace FitPlaneLife.Controllers
             GetCurrentUserAndStatus();
             return View();
         }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
     }
+   
 }
+

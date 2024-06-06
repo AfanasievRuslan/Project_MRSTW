@@ -26,15 +26,15 @@
                 <small>This is the best app ever!</small>
             </div>
             <div class="hpanel">
-                 <div class="panel-body">
+                <div class="panel-body">
 
 
-                      @Html.ValidationSummary(true)
-                      @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @id = "LoginForm" }))
-                      {
-                           @Html.AntiForgeryToken()
-                      <form action="#" id="loginForm">
-                           <div class="form-group mb-3">
+                    @Html.ValidationSummary(true)
+                    @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @id = "LoginForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <form action="#" id="loginForm">
+                            <div class="form-group mb-3">
                                 @Html.LabelFor(m => m.Email, new { @class = "control-label" })
                                 @Html.TextBoxFor(m => m.Email, new
                            {
@@ -45,8 +45,8 @@
                                 id = "username",
                                 @class = "form-control"
                            })
-                           </div>
-                           <div class="form-group mb-3">
+                            </div>
+                            <div class="form-group mb-3">
                                 @Html.LabelFor(m => m.Password, new { @class = "control-label" })
                                 @Html.TextBoxFor(m => m.Password, new
                            {
@@ -58,19 +58,20 @@
                                 type = "password",
                                 @class = "form-control"
                            })
-                           </div>
-                           <div class="checkbox">
+                            </div>
+                            <div class="checkbox">
                                 <input type="checkbox" class="i-checks" checked>
                                 Remember login
                                 <p class="help-block small">(if this is a private computer)</p>
-                           </div>
-                           <button type="submit" class="btn btn-success btn-block" href="@Url.Action("Index", "Home")">Login</button>
+                            </div>
+                            <button type="submit" class="btn btn-success btn-block" href="@Url.Action("Index", "Home")">Login</button>
 
-                           <a class="btn btn-default btn-block" href="/Register/Register">Register</a>
-                      </form>
-                      }
-                      </div>
+                            <a class="btn btn-default btn-block" href="/Register/Register">Register</a>
+                        </form>
+                    }
+                </div>
             </div>
         </div>
     </div>
-   
+
+</div>

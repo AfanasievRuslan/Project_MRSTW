@@ -6,34 +6,26 @@
     <title>Subscriptions</title>
 </head>
 <body>
-    <h1>Subscriptions</h1>
+    <center><h2><b>ABONEMENTS</b></h2></center>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Duration (Months)</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var subscription in Model)
-            {
-                <tr>
-                    <td>@subscription.Name</td>
-                    <td>@subscription.Description</td>
-                    <td>@subscription.Price</td>
-                    <td>@subscription.Duration</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <p>
+        <center><h2><b style="color: red;">Here you can find various subscriptions available:</b></h2></center>
+    </p>
+    <div style="display: flex; justify-content: center;">
+        @foreach (var subscription in Model)
+        {
 
-    <div class="d-flex justify-content-center my-3">
-        <a href="@Url.Action("CreateMonthlySubscription", "Subscription")" class="btn btn-primary mx-2">Create Monthly Subscription</a>
-        <a href="@Url.Action("CreateQuarterlySubscription", "Subscription")" class="btn btn-primary mx-2">Create Quarterly Subscription</a>
-        <a href="@Url.Action("CreateHalfYearlySubscription", "Subscription")" class="btn btn-primary mx-2">Create Half Yearly Subscription</a>
+            var actionName = "Create" + subscription.Type + "Subscription";
+            <div class="abonement-item">
+                <a href="@Url.Action(actionName, "Subscription")" class="abonement-link">
+                    <div class="abonement-content">
+                        <h3 style="font-size: 24px; font-weight: bold;">@subscription.Name Abonement</h3>
+                        <span style="font-size: 18px;">Price: $@subscription.Price</span><br />
+                        <span style="font-size: 18px;">Duration: @subscription.Duration months</span>
+                    </div>
+                </a>
+            </div>
+        }
     </div>
 </body>
 </html>

@@ -34,11 +34,11 @@
                <div class="hpanel">
                     <div class="panel-body">
                          @Html.ValidationSummary(true)
-                         @using (Html.BeginForm("RecoverData", "Login", FormMethod.Post, new { @id = "RecoverDataForm" }))
+                         @using (Html.BeginForm("RecoverData", "RecoverData", FormMethod.Post, 
+                              new { @id = "RecoverDataForm" }))
                          {
                               @Html.AntiForgeryToken()
                               <form action="/" novalidate id="LoginForm" method="post">
-
                                    <div class="form-group mb-3">
                                         @Html.LabelFor(m => m.Email, new { @class = "emailadress" })
                                         @Html.TextBoxFor(m => m.Email, new

@@ -29,7 +29,7 @@ namespace FitPlaneLife.Controllers
                     if (checkUser.Status)
                     {
                          TempData["email"] = user.Email;
-                         return RedirectToAction("Recover", "Login");
+                         return RedirectToAction("Recover", "RecoverData");
                     }
                     else
                     {

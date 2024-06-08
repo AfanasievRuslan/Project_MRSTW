@@ -9,6 +9,5 @@ namespace FitPlaneLife.Models
      {
           public int Email { get; set; }
           public int Username { get; set; }
-          public int Password { get; set; }
      }
 }

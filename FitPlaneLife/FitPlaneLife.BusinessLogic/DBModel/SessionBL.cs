@@ -19,6 +19,10 @@ namespace FitPlaneLife.BusinessLogic.DBModel
           {
                return UserRegisterAction(data);
           }
+          public BoolResp AddAbonament(AbonamentData data)
+          {
+               return AddAbonamentAction(data);
+          }
 
           public HttpCookie GenCookie(string loginCredential)
           {

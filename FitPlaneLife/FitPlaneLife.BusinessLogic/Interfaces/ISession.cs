@@ -13,9 +13,11 @@ namespace FitPlaneLife.BusinessLogic.Interfaces
      {
           ULoginResp UserLogin(ULoginData data);
           URegisterResp UserRegister(URegisterData data);
+          BoolResp AddAbonament(AbonamentData data);
           HttpCookie GenCookie(string loginCredential);
           bool RecoverPassword(string email, string password);
           UserMinimal GetUserByCookie(string apiCookieValue);
           BoolResp CheckUser(UCheckData data);
+
      }
 }

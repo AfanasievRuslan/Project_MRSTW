@@ -10,11 +10,11 @@ namespace FitPlaneLife.BusinessLogic.DBModel
 {
      public class TableContext : DbContext
      {
-          public TableContext() : base("DefaultConnection")
+          public TableContext() : base("name=FitPlaneLife")
           {
           }
 
-          public DbSet<Subscription> Subscriptions { get; set; }
+          public DbSet<UAbonements> Abonemet { get; set; }
           public DbSet<UserTable> Users { get; set; }
           public DbSet<Session> Sessions { get; set; }
 

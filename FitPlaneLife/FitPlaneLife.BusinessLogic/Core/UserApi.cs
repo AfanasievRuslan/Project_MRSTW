@@ -127,7 +127,36 @@ namespace FitPlaneLife.BusinessLogic.Core
 
                return apiCookie;
           }
-
+          internal BoolResp AddAbonamentAction(AbonamentData data)
+          {
+               var validate = new EmailAddressAttribute();
+               if (validate.IsValid(data.Email))
+               {
+                    using (var db = new AbonementsContext())
+                    {
+                         UAbonements existingSubscription = db.Abonemet.FirstOrDefault(u => u.Email == data.Email);
+                         if (existingSubscription != null)
+                         {
+                              return new BoolResp {Status = false, StatusMsg = "Introduced email already exists"};
+                         }
+                         var newSubscription = new UAbonements
+                         {
+                              Email = data.Email,
+                              Name = data.Name,
+                              Phone = data.Phone,
+                              DateOfBirth = data.DateOfBirth,
+                              Type = "One Month",
+                              Price = 10,
+                              Duration = 1,
+                         };
+                         db.Abonemet.Add(newSubscription);
+                         db.SaveChanges();
+                    }
+                    return new BoolResp { Status = true };
+               }
+               else
+                    return new BoolResp { Status = false };
+          }
           internal UserMinimal UserCookie(string cookie)
           {
                Session session;

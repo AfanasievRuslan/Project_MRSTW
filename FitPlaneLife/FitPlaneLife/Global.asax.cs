@@ -31,6 +31,7 @@ namespace FitPlaneLife
                {
                     cfg.CreateMap<UserLogin, ULoginData>();
                     cfg.CreateMap<UserRegister, URegisterData>();
+                    cfg.CreateMap<Subscription, AbonamentData>();
                     cfg.CreateMap<UserTable, UserMinimal>();
                });
           }

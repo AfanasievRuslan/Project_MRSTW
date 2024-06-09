@@ -25,7 +25,9 @@ namespace FitPlaneLife.App_Start
             bundles.Add(new StyleBundle("~/css").Include(
                 "~/css/bootstrap.min.css",
                 "~/css/style.css",
-                "~/css/admin.css"));
+                "~/css/admin.css",
+                "~/css/style.min.css"
+                ));
 
             bundles.Add(new StyleBundle("~/lib/css").Include(
                 "~/lib/owlcarousel/assets/owl.carousel.min.css",
